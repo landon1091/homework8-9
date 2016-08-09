@@ -1,0 +1,44 @@
+@import '../node_modules/foundation-sites/scss/foundation';
+@include foundation-global-styles;
+@include foundation-grid;
+
+
+$cell-height: 100px;
+
+header {
+    @include grid-row();
+        h1 {
+            @include grid-column(12);  /*one large column */
+            text-align: center;
+        }
+}
+
+section {
+    @include grid-row();
+        div {
+            @include grid-column(12);
+            text-align: center;
+            height: $cell-height;
+             border: 3px solid black;
+        }
+}
+//  once the screen is bigger than medium, apply these styles
+.big-appear {
+    display: none;
+    @include breakpoint(medium) {
+        display: block;
+
+    }
+}
+#county-fair {
+    .big-shrink {
+        @include breakpoint(medium) {
+            @include grid-column(4);
+        }
+    }
+    .big-appear {
+        @include breakpoint(medium) {   /*become 8 long now if bigger than medium */
+            @include grid-column(8);
+        }
+    }
+}
